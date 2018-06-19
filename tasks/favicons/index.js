@@ -22,13 +22,13 @@ const sizes = {
 		transparent: true,
 	},
 	'favicon-96x96': 96,
-	'favicon-192x192': 192,
 	'favicon-150x150': 150,
+	'favicon-192x192': 192,
 	'favicon-512x512': 512,
-	'msapplication-square310x310logo': 310,
 	'msapplication-TileImage': 150,
-	'msapplication-square150x150logo': 150,
 	'msapplication-square70x70logo': 70,
+	'msapplication-square150x150logo': 150,
+	'msapplication-square310x310logo': 310,
 	'msapplication-wide310x150logo': {
 		width: 310,
 		height: 150,
@@ -45,7 +45,7 @@ module.exports = (config) => {
 
 	const html = [];
 
-	const resizers = Object.entries(sizes).map(([filename, options]) => {
+	const generateFavicons = Object.entries(sizes).map(([filename, options]) => {
 		const settings = {
 			width: 512,
 			height: 512,
@@ -112,14 +112,8 @@ module.exports = (config) => {
 			.pipe(rename(`${filename}.png`))
 			.pipe(gulp.dest(dest));
 
-		const name = `favicon:${filename}`;
-
-		gulp.task(name, task);
-
-		return name;
+		return { filename, task };
 	});
-
-	const generateFavicons = gulp.parallel(...resizers);
 
 	const outputHTML = (done) => {
 		/* eslint-disable no-console */
@@ -130,31 +124,27 @@ module.exports = (config) => {
 		done();
 	};
 
-	if (svg) {
-		const svgoSettings = {
-			plugins: [
-				{ cleanupAttrs: true },
-				{ removeViewbox: false },
-				{ removeRasterImages: true },
-				{ removeDoctype: true },
-				{ removeComments: true },
-				{
-					cleanupNumericValues: {
-						floatPrecision: 2,
-					},
+	const svgoSettings = {
+		plugins: [
+			{ cleanupAttrs: true },
+			{ removeViewbox: false },
+			{ removeRasterImages: true },
+			{ removeDoctype: true },
+			{ removeComments: true },
+			{
+				cleanupNumericValues: {
+					floatPrecision: 2,
 				},
-			],
-		};
+			},
+		],
+	};
 
-		const copyPinnedTab = () => gulp
-			.src(svg, { allowEmpty: true })
-			.pipe(imagemin([
-				imagemin.svgo(svgoSettings),
-			]))
-			.pipe(gulp.dest(dest));
+	const copyPinnedTab = () => gulp
+		.src(svg, { allowEmpty: true })
+		.pipe(imagemin([
+			imagemin.svgo(svgoSettings),
+		]))
+		.pipe(gulp.dest(dest));
 
-		return gulp.series(gulp.parallel(generateFavicons, copyPinnedTab), outputHTML);
-	}
-
-	return gulp.series(gulp.generateFavicons, outputHTML);
+	return { generateFavicons, copyPinnedTab, outputHTML };
 };

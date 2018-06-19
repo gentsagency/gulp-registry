@@ -33,7 +33,31 @@ class Registry {
 		}
 
 		if (faviconsConfig) {
-			this.set('favicons', favicons(faviconsConfig), { default: false, watch: false });
+			const taskOptions = { default: false, watch: false };
+
+			const {
+				generateFavicons,
+				copyPinnedTab,
+				outputHTML,
+			} = favicons(faviconsConfig);
+
+			const subtasks = generateFavicons.map(({ filename, task }) => {
+				const name = `favicons:${filename}`;
+				Object.defineProperty(task, 'name', { value: name });
+				this.set(name, task, taskOptions);
+				return name;
+			});
+
+			Object.defineProperty(copyPinnedTab, 'name', { value: 'favicons:pinned-tab' });
+			this.set('favicons:pinned-tab', copyPinnedTab, taskOptions);
+			subtasks.push('favicons:pinned-tab');
+
+			this.set('favicons:generate', taker.parallel(...subtasks), taskOptions);
+
+			Object.defineProperty(outputHTML, 'name', { value: 'favicons:html' });
+			this.set('favicons:html', outputHTML, taskOptions);
+
+			this.set('favicons', taker.series('favicons:generate'), taskOptions);
 		}
 
 		if (iconsConfig) {
