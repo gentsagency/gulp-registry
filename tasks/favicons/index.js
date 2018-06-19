@@ -93,7 +93,7 @@ module.exports = (config) => {
 		}
 
 		const task = () => gulp
-			.src(png)
+			.src(png, { allowEmpty: true })
 			.pipe(gm((favicon) => {
 				const { width, height, transparent } = settings;
 				const shortest = width <= height ? width : height;
@@ -147,7 +147,7 @@ module.exports = (config) => {
 		};
 
 		const copyPinnedTab = () => gulp
-			.src(svg)
+			.src(svg, { allowEmpty: true })
 			.pipe(imagemin([
 				imagemin.svgo(svgoSettings),
 			]))
