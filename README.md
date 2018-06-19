@@ -4,7 +4,7 @@ This task registry provides a modern front-end workflow with modern tools and st
 
 ## Installation
 
-Install the registry through NPM or Yarn:
+Install the registry through NPM:
 
 ```sh
 npm i --save-dev gulp@^4.0.0 @gentsagency/gulp-registry
@@ -125,9 +125,3 @@ npm rm -g gulp
 rm /usr/local/share/man/man1/gulp.1
 npm i -g gulp-cli
 ```
-
-### Node & Yarn setup
-
-When you install Yarn through Homebrew, it also pulls in the latest Node.js version (through Homebrew). This causes some issues when you already run a version of Node.js that has not been installed with Homebrew.
-
-The easiest way I made this work was [follow these instructions to uninstall Node.js](http://stackoverflow.com/questions/11177954/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x/11178106#11178106) & then simply run `$ brew install yarn`. It sets up everything for you. You will still have to install Gulp globally either through Yarn or NPM.
