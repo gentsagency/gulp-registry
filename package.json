@@ -19,9 +19,9 @@
     "gulp": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
-    "@gentsagency/eslint-config": "^1.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.19.1",
+    "@gentsagency/eslint-config": "^2.0.0",
+    "eslint-plugin-import": "^2.13.0",
     "gulp": "^4.0.0"
   },
   "dependencies": {
@@ -41,7 +41,7 @@
     "gulp-uglify": "^3.0.0",
     "postcss-import": "^11.1.0",
     "postcss-nested": "^3.0.0",
-    "postcss-preset-env": "^5.1.0",
+    "postcss-preset-env": "^5.2.0",
     "rollup-plugin-commonjs": "^8.4.1",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-stream": "^1.24.1",
