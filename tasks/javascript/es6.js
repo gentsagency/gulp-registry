@@ -7,6 +7,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
 const rollup = require('rollup-stream');
 const tap = require('gulp-tap');
+const sourcemaps = require('gulp-sourcemaps');
 
 module.exports = (config) => {
 	const { src, dest } = config;
@@ -21,13 +22,14 @@ module.exports = (config) => {
 					resolve({ browser: true }),
 					commonjs({ sourceMap: false }),
 				],
+				sourcemap: true,
 			});
 		}))
-		.pipe(rename({ suffix: '.es6' }))
-		.pipe(gulp.dest(dest))
 		.pipe(buffer())
+		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(babili())
-		.pipe(rename({ suffix: '.min' }))
+		.pipe(rename({ suffix: '.es6' }))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(dest));
 
 	return es6;

@@ -6,6 +6,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const inlineImports = require('postcss-import');
 const nested = require('postcss-nested');
 const rename = require('gulp-rename');
+const sourcemaps = require('gulp-sourcemaps');
 
 module.exports = (config) => {
 	const { src, dest } = config;
@@ -24,10 +25,10 @@ module.exports = (config) => {
 
 	const css = () => gulp
 		.src(src)
+		.pipe(sourcemaps.init())
 		.pipe(postcss(processors))
-		.pipe(gulp.dest(dest))
 		.pipe(cleancss({ level: 2 }))
-		.pipe(rename({ suffix: '.min' }))
+		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(dest));
 
 	return css;

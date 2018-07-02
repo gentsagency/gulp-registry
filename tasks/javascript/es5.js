@@ -4,9 +4,9 @@ const babelify = require('babelify');
 const babelPresetEnv = require('@babel/preset-env');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
-const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const tap = require('gulp-tap');
+const sourcemaps = require('gulp-sourcemaps');
 
 module.exports = (config) => {
 	const { src, dest } = config;
@@ -14,6 +14,7 @@ module.exports = (config) => {
 	const es5 = () => {
 		const babelSettings = {
 			presets: [babelPresetEnv],
+			sourceMaps: true,
 		};
 
 		return gulp.src(src, { read: false })
@@ -23,11 +24,11 @@ module.exports = (config) => {
 					.transform(babelify, babelSettings)
 					.bundle();
 			}))
-			.pipe(gulp.dest(dest))
 			.pipe(buffer())
+			.pipe(sourcemaps.init({ loadMaps: true }))
 			.pipe(uglify())
-			.pipe(rename({ suffix: '.min' }))
-			.pipe(gulp.dest(config.dest));
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest(dest));
 	};
 
 	return es5;
