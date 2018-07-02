@@ -42,7 +42,7 @@
     "gulp-uglify": "^3.0.0",
     "postcss-import": "^11.1.0",
     "postcss-nested": "^3.0.0",
-    "postcss-preset-env": "^5.2.0",
+    "postcss-preset-env": "^5.2.1",
     "rollup-plugin-commonjs": "^8.4.1",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-stream": "^1.24.1",
