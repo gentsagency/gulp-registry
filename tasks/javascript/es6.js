@@ -25,11 +25,10 @@ module.exports = (config) => {
 				sourcemap: true,
 			});
 		}))
-		// .pipe(gulp.dest(dest))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(babili())
-		.pipe(rename({ suffix: '.es6.min' }))
+		.pipe(rename({ suffix: '.es6' }))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(dest));
 

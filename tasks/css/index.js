@@ -28,7 +28,6 @@ module.exports = (config) => {
 		.pipe(sourcemaps.init())
 		.pipe(postcss(processors))
 		.pipe(cleancss({ level: 2 }))
-		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(dest));
 
