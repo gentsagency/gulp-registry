@@ -15,6 +15,7 @@ module.exports = (config) => {
 	const es5 = () => {
 		const babelSettings = {
 			presets: [babelPresetEnv],
+			sourceMaps: true,
 		};
 
 		return gulp.src(src, { read: false })
