@@ -37,7 +37,7 @@
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-svgstore": "^6.1.1",
+    "gulp-svgstore": "^7.0.0",
     "gulp-tap": "^1.0.1",
     "gulp-uglify": "^3.0.1",
     "postcss-import": "^11.0.0",
