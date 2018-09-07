@@ -14,7 +14,10 @@ module.exports = (config) => {
 	const es5 = () => {
 		const babelSettings = {
 			presets: [
-				[babelPresetEnv, { useBuiltIns: 'entry' }],
+				[babelPresetEnv, {
+					useBuiltIns: 'entry',
+					targets: 'extends @gentsagency/browserslist-config-es5',
+				}],
 			],
 			sourceMaps: true,
 		};

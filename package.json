@@ -25,9 +25,11 @@
     "gulp": "^4.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "babelify": "^10.0.0",
+    "@gentsagency/browserslist-config-es5": "^1.0.0",
+    "@gentsagency/browserslist-config-es6": "^1.0.0",
     "browserify": "^16.2.2",
     "gulp-better-rollup": "^3.3.0",
     "gulp-cheerio": "^0.6.3",
