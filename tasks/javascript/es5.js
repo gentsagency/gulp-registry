@@ -13,7 +13,9 @@ module.exports = (config) => {
 
 	const es5 = () => {
 		const babelSettings = {
-			presets: [babelPresetEnv],
+			presets: [
+				[babelPresetEnv, { useBuiltIns: 'entry' }],
+			],
 			sourceMaps: true,
 		};
 

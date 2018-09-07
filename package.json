@@ -45,6 +45,7 @@
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.0.6",
     "rollup": "^0.66.0",
+    "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-babel-minify": "^6.0.0",
     "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-node-resolve": "^3.4.0",
