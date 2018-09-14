@@ -5,7 +5,7 @@ const cleancss = require('gulp-clean-css');
 const postcssPresetEnv = require('postcss-preset-env');
 const inlineImports = require('postcss-import');
 const nested = require('postcss-nested');
-const rename = require('gulp-rename');
+const normalize = require('postcss-normalize');
 const sourcemaps = require('gulp-sourcemaps');
 
 module.exports = (config) => {
@@ -13,6 +13,7 @@ module.exports = (config) => {
 
 	const processors = [
 		inlineImports({ path: src }),
+		normalize({ forceImport: true }),
 		nested(),
 		postcssPresetEnv({
 			stage: 1,

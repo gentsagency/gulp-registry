@@ -1,6 +1,6 @@
 {
   "name": "@gentsagency/gulp-registry",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "description": "Gulp registry",
   "main": "index.js",
   "repository": {
@@ -13,19 +13,19 @@
     "extends": "@gentsagency/eslint-config"
   },
   "scripts": {
-    "lint": "eslint --fix tasks/*.js *.js; exit 0"
+    "lint": "eslint --fix tasks/**/*.js *.js; exit 0"
   },
   "peerDependencies": {
     "gulp": "^4.0.0"
   },
   "devDependencies": {
     "@gentsagency/eslint-config": "^2.1.0",
-    "eslint": "^5.4.0",
+    "eslint": "^5.5.0",
     "eslint-plugin-import": "^2.14.0",
     "gulp": "^4.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "babelify": "^9.0.0",
     "browserify": "^16.2.2",
@@ -42,11 +42,12 @@
     "gulp-uglify": "^3.0.1",
     "postcss-import": "^12.0.0",
     "postcss-nested": "^3.0.0",
+    "postcss-normalize": "^6.0.0",
     "postcss-preset-env": "^5.3.0",
-    "rollup": "^0.65.0",
+    "rollup": "^0.65.2",
     "rollup-plugin-babel-minify": "^6.0.0",
     "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "vinyl-buffer": "^1.0.1"
   }
 }
