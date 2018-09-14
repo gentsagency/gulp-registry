@@ -13,7 +13,7 @@
     "extends": "@gentsagency/eslint-config"
   },
   "scripts": {
-    "lint": "eslint --fix tasks/*.js *.js; exit 0"
+    "lint": "eslint --fix tasks/**/*.js *.js; exit 0"
   },
   "peerDependencies": {
     "gulp": "^4.0.0"
