@@ -20,14 +20,14 @@
   },
   "devDependencies": {
     "@gentsagency/eslint-config": "^2.1.0",
-    "eslint": "^5.5.0",
+    "eslint": "^5.6.0",
     "eslint-plugin-import": "^2.14.0",
     "gulp": "^4.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
-    "babelify": "^9.0.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babelify": "^10.0.0",
     "browserify": "^16.2.2",
     "gulp-better-rollup": "^3.3.0",
     "gulp-cheerio": "^0.6.3",
@@ -44,9 +44,9 @@
     "postcss-nested": "^3.0.0",
     "postcss-normalize": "^6.0.0",
     "postcss-preset-env": "^5.3.0",
-    "rollup": "^0.65.2",
+    "rollup": "^0.66.0",
     "rollup-plugin-babel-minify": "^6.0.0",
-    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-node-resolve": "^3.4.0",
     "vinyl-buffer": "^1.0.1"
   }
