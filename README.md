@@ -1,5 +1,7 @@
 # Gents Agency Gulp Registry
 
+[![dependencies Status](https://david-dm.org/gentsagency/gulp-registry/status.svg)](https://david-dm.org/gentsagency/gulp-registry)
+
 This task registry provides a modern front-end workflow with modern tools and standards in mind. It's meant to be consumed by Gulp 4.
 
 ## Installation
