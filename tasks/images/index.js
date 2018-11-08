@@ -9,7 +9,7 @@ module.exports = (config) => {
 	const { src, dest } = config;
 
 	const images = () => gulp
-		.src(src, { since: images.lastRun })
+		.src(src, { since: gulp.lastRun(images) })
 		.pipe(imagemin())
 		.pipe(gulp.dest(dest));
 
@@ -17,7 +17,7 @@ module.exports = (config) => {
 		const allowedGlobs = ['**/*.jpg', '**/*.jpeg', '**/*.png'];
 
 		const resizers = config.generateSizes.map((size) => () => gulp
-			.src(src, { since: images.lastRun })
+			.src(src, { since: gulp.lastRun(images) })
 			.pipe(filter(allowedGlobs))
 			.pipe(gm((image) => image.resize(size)))
 			.pipe(imagemin())
