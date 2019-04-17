@@ -15,6 +15,10 @@ module.exports = (config) => {
 		const babelSettings = {
 			presets: [babelPresetEnv],
 			sourceMaps: true,
+			global: true,
+			ignore: [
+				/\/node_modules\/(?!lit-(.+)\/)/
+			]
 		};
 
 		return gulp.src(src, { read: false })
