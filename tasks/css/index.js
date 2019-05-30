@@ -7,6 +7,7 @@ const inlineImports = require('postcss-import');
 const nested = require('postcss-nested');
 const normalize = require('postcss-normalize');
 const sourcemaps = require('gulp-sourcemaps');
+const cssVariables = require('postcss-css-variables');
 
 module.exports = (config) => {
 	const { src, dest } = config;
@@ -15,8 +16,12 @@ module.exports = (config) => {
 		inlineImports({ path: src }),
 		normalize({ forceImport: true }),
 		nested(),
+		cssVariables({ preserve: true }),
 		postcssPresetEnv({
 			stage: 1,
+			features: {
+				'custom-properties': false,
+			},
 			autoprefixer: {
 				grid: true,
 				supports: false,
